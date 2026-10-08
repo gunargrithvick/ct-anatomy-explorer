@@ -1,0 +1,13 @@
+# AI pipeline (install PyTorch separately to match your GPU: https://pytorch.org)
+monai==1.6.1
+nibabel
+numpy
+scipy
+matplotlib
+pandas
+pytorch-ignite
+einops
+fire
+huggingface_hub
+requests
+nbformat        # only for tools/build_notebook.py

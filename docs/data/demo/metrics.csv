@@ -1,0 +1,13 @@
+organ,dice,expert_ml,ai_ml,difference_pct
+Liver,0.9263,1125.7,1304.9,15.9
+Spleen,0.8495,261.0,192.7,-26.2
+Pancreas,0.7367,18.8,18.8,0.0
+Right kidney,0.8832,192.6,242.2,25.7
+Left kidney,0.7913,137.4,90.0,-34.5
+Gallbladder,0.8696,35.6,28.6,-19.7
+Stomach,0.8584,130.6,165.1,26.4
+Aorta,0.6722,49.7,25.1,-49.4
+Inferior vena cava,0.9294,61.2,56.6,-7.4
+Oesophagus,,0.0,0.0,
+Duodenum,0.6965,62.6,33.5,-46.6
+Urinary bladder,0.9423,479.4,479.4,0.0

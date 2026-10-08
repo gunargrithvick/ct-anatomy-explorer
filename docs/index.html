@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT Anatomy Explorer</title>
+  <meta name="description" content="Explore AI (VISTA-3D, MONAI) organ segmentation on public CT scans and compare it with expert masks. Educational use only.">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>CT Anatomy Explorer <span class="ver" id="version">v0.5</span></h1>
+      <p class="tagline">Organ segmentation by the VISTA-3D AI model (MONAI) on public CT scans, side by side with expert masks.</p>
+    </div>
+    <p class="org">DSU AI Factory · Data &amp; Health AI</p>
+  </header>
+  <div class="notice" role="note"><strong>Educational use only.</strong> Not for diagnosis or any clinical decision.</div>
+
+  <main class="layout">
+    <!-- Controls -->
+    <aside class="panel controls" aria-label="Controls">
+      <section>
+        <label class="label" for="caseSelect">Case</label>
+        <select id="caseSelect"></select>
+        <p class="case-desc" id="caseDesc"></p>
+        <div id="caseBadges"></div>
+      </section>
+
+      <section>
+        <span class="label">Show</span>
+        <div class="seg" role="group" aria-label="Which masks to show">
+          <button type="button" data-mode="reference" aria-pressed="true">Expert</button>
+          <button type="button" data-mode="ai" aria-pressed="false">AI</button>
+          <button type="button" data-mode="compare" aria-pressed="false">Compare</button>
+        </div>
+        <p class="hint" id="modeHint">Masks drawn by experts (reference).</p>
+        <div class="legend" id="legend" hidden></div>
+      </section>
+
+      <section>
+        <div class="row-between">
+          <span class="label">Organs</span>
+          <span class="mini-actions">
+            <button type="button" class="link" id="allOn">All</button> ·
+            <button type="button" class="link" id="allOff">None</button>
+          </span>
+        </div>
+        <ul class="organs" id="organList"></ul>
+        <p class="hint">Tick to show or hide. Click a name to jump to that organ.</p>
+      </section>
+
+      <section>
+        <label class="label" for="opacity">Mask opacity <span id="opacityVal">55%</span></label>
+        <input type="range" id="opacity" min="0" max="100" value="55">
+      </section>
+
+      <section>
+        <span class="label">CT window</span>
+        <div class="seg small" role="group" aria-label="CT window">
+          <button type="button" data-window="abdomen" aria-pressed="true">Abdomen</button>
+          <button type="button" data-window="lung" aria-pressed="false">Lung</button>
+          <button type="button" data-window="bone" aria-pressed="false">Bone</button>
+        </div>
+      </section>
+
+      <section>
+        <span class="label">Layout</span>
+        <div class="seg small" role="group" aria-label="Layout">
+          <button type="button" data-layout="multi" aria-pressed="true">4 views</button>
+          <button type="button" data-layout="axial" aria-pressed="false">Axial</button>
+          <button type="button" data-layout="coronal" aria-pressed="false">Coronal</button>
+          <button type="button" data-layout="sagittal" aria-pressed="false">Sagittal</button>
+          <button type="button" data-layout="render" aria-pressed="false">3D</button>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Viewer -->
+    <section class="viewer" aria-label="Image viewer">
+      <canvas id="gl"></canvas>
+      <div class="overlay-top" id="readout">Click or drag on the image to explore.</div>
+      <div class="loading" id="loading">Loading scan…</div>
+    </section>
+
+    <!-- Results -->
+    <aside class="panel results" aria-label="Results">
+      <section>
+        <div class="row-between">
+          <span class="label">Agreement with experts</span>
+          <span class="score" id="meanDice"></span>
+        </div>
+        <table class="metrics" id="metricsTable">
+          <thead><tr><th>Organ</th><th title="Dice overlap: 1.00 = identical">Dice</th><th>Expert mL</th><th>AI mL</th><th>Diff</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="hint">Dice compares the AI and expert masks voxel by voxel (1.00 = identical). It shows agreement, not clinical accuracy.</p>
+        <div id="flags"></div>
+      </section>
+      <section>
+        <span class="label">Downloads (this case)</span>
+        <ul class="downloads" id="downloads"></ul>
+      </section>
+      <section class="about">
+        <span class="label">How this was made</span>
+        <p id="aboutText"></p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot" id="footer">
+    CT data: TotalSegmentator dataset (Wasserthal et al., <em>Radiology: Artificial Intelligence</em> 2023), CC BY 4.0 ·
+    AI model: VISTA-3D, MONAI / NVIDIA (research use) ·
+    Viewer: <a href="https://github.com/niivue/niivue">NiiVue</a> (BSD-2-Clause)
+    <div class="team">Built by the DSU AI Factory interns</div>
+  </footer>
+
+  <script src="vendor/niivue.umd.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

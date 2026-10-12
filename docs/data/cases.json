@@ -1,9 +1,9 @@
 {
  "app": "CT Anatomy Explorer",
  "version": "0.5",
- "generated": "2026-10-07 16:12",
- "model": "DEMO ONLY: the AI masks here are simulated (edited copies of the reference), not real VISTA-3D output",
- "dataset": "TotalSegmentator sample CT from the TotalSegmentator GitHub test files (Apache-2.0); reference masks from TotalSegmentator fast model",
+ "generated": "2026-10-08 10:34",
+ "model": "VISTA-3D (MONAI bundle 'vista3d', label prompts for 12 organs)",
+ "dataset": "TotalSegmentator small subset v2.0.1 (Wasserthal et al., Radiology: AI 2023), CC BY 4.0",
  "ct_window": [
   -160,
   240
@@ -170,227 +170,1134 @@
  },
  "cases": [
   {
-   "id": "demo",
+   "id": "s1405",
    "files": {
-    "ct": "demo/ct.nii.gz",
-    "reference": "demo/reference.nii.gz",
-    "ai": "demo/ai.nii.gz",
-    "ai_fullres": "demo/ai_fullres.nii.gz",
-    "metrics_csv": "demo/metrics.csv"
+    "ct": "s1405/ct.nii.gz",
+    "reference": "s1405/reference.nii.gz",
+    "ai": "s1405/ai.nii.gz",
+    "ai_fullres": "s1405/ai_fullres.nii.gz",
+    "metrics_csv": "s1405/metrics.csv"
    },
    "size_mb": {
-    "ct": 1.78,
-    "reference": 0.03,
-    "ai": 0.03,
-    "ai_fullres": 0.03,
+    "ct": 9.5,
+    "reference": 0.1,
+    "ai": 0.1,
+    "ai_fullres": 0.2,
     "metrics_csv": 0.0
    },
    "web_spacing_mm": [
-    3.0,
-    3.0,
-    3.0
+    2.0,
+    2.0,
+    2.0
    ],
    "focus_mm": {
     "liver": [
-     98.0,
-     164.3,
-     394.3
+     100.4,
+     175.4,
+     384.6
     ],
     "spleen": [
-     -109.0,
-     107.3,
-     406.3
+     -99.6,
+     113.4,
+     376.6
     ],
     "pancreas": [
-     8.0,
-     197.3,
-     364.3
+     28.4,
+     189.4,
+     318.6
     ],
     "kidney_right": [
-     80.0,
-     140.3,
-     316.3
+     56.4,
+     129.4,
+     350.6
     ],
     "kidney_left": [
-     -85.0,
-     110.3,
-     364.3
+     -93.6,
+     167.4,
+     280.6
     ],
     "gallbladder": [
-     65.0,
-     212.3,
-     364.3
+     100.4,
+     231.4,
+     350.6
     ],
     "stomach": [
-     -61.0,
-     185.3,
-     409.3
+     -39.6,
+     191.4,
+     378.6
     ],
     "aorta": [
-     -16.0,
-     146.3,
-     418.3
+     -5.6,
+     179.4,
+     264.6
     ],
     "inferior_vena_cava": [
-     11.0,
-     173.3,
-     358.3
+     18.4,
+     171.4,
+     434.6
+    ],
+    "esophagus": [
+     -19.6,
+     161.4,
+     414.6
     ],
     "duodenum": [
-     41.0,
-     182.3,
-     331.3
+     34.4,
+     183.4,
+     268.6
     ],
     "urinary_bladder": [
-     -1.0,
-     170.3,
-     148.3
+     -13.6,
+     137.4,
+     110.6
     ]
    },
    "metrics": {
-    "case_id": "demo",
-    "mean_dice": 0.8323,
+    "case_id": "s1405",
+    "mean_dice": 0.9331,
     "organs": {
      "liver": {
       "name": "Liver",
-      "dice": 0.9263,
-      "vol_ref_ml": 1125.7,
-      "vol_ai_ml": 1304.9,
-      "vol_diff_pct": 15.9,
-      "agree_vox": 41692,
-      "ai_only_vox": 6636,
-      "missed_vox": 0
+      "dice": 0.9722,
+      "vol_ref_ml": 1109.5,
+      "vol_ai_ml": 1082.0,
+      "vol_diff_pct": -2.5,
+      "agree_vox": 315642,
+      "ai_only_vox": 4938,
+      "missed_vox": 13092
      },
      "spleen": {
       "name": "Spleen",
-      "dice": 0.8495,
-      "vol_ref_ml": 261.0,
-      "vol_ai_ml": 192.7,
-      "vol_diff_pct": -26.2,
-      "agree_vox": 7138,
-      "ai_only_vox": 0,
-      "missed_vox": 2530
+      "dice": 0.94,
+      "vol_ref_ml": 180.5,
+      "vol_ai_ml": 196.0,
+      "vol_diff_pct": 8.6,
+      "agree_vox": 52437,
+      "ai_only_vox": 5650,
+      "missed_vox": 1046
      },
      "pancreas": {
       "name": "Pancreas",
-      "dice": 0.7367,
-      "vol_ref_ml": 18.8,
-      "vol_ai_ml": 18.8,
-      "vol_diff_pct": 0.0,
-      "agree_vox": 512,
-      "ai_only_vox": 183,
-      "missed_vox": 183
+      "dice": 0.9119,
+      "vol_ref_ml": 72.3,
+      "vol_ai_ml": 75.3,
+      "vol_diff_pct": 4.1,
+      "agree_vox": 19931,
+      "ai_only_vox": 2368,
+      "missed_vox": 1484
      },
      "kidney_right": {
       "name": "Right kidney",
-      "dice": 0.8832,
-      "vol_ref_ml": 192.6,
-      "vol_ai_ml": 242.2,
-      "vol_diff_pct": 25.7,
-      "agree_vox": 7112,
-      "ai_only_vox": 1859,
-      "missed_vox": 22
+      "dice": 0.9646,
+      "vol_ref_ml": 116.0,
+      "vol_ai_ml": 120.9,
+      "vol_diff_pct": 4.3,
+      "agree_vox": 33856,
+      "ai_only_vox": 1972,
+      "missed_vox": 510
      },
      "kidney_left": {
       "name": "Left kidney",
-      "dice": 0.7913,
-      "vol_ref_ml": 137.4,
-      "vol_ai_ml": 90.0,
-      "vol_diff_pct": -34.5,
-      "agree_vox": 3332,
-      "ai_only_vox": 0,
-      "missed_vox": 1758
+      "dice": 0.9602,
+      "vol_ref_ml": 140.1,
+      "vol_ai_ml": 147.9,
+      "vol_diff_pct": 5.6,
+      "agree_vox": 40976,
+      "ai_only_vox": 2859,
+      "missed_vox": 541
      },
      "gallbladder": {
       "name": "Gallbladder",
-      "dice": 0.8696,
-      "vol_ref_ml": 35.6,
-      "vol_ai_ml": 28.6,
-      "vol_diff_pct": -19.7,
-      "agree_vox": 1034,
-      "ai_only_vox": 25,
-      "missed_vox": 285
+      "dice": 0.8673,
+      "vol_ref_ml": 12.2,
+      "vol_ai_ml": 13.5,
+      "vol_diff_pct": 10.6,
+      "agree_vox": 3296,
+      "ai_only_vox": 695,
+      "missed_vox": 314
      },
      "stomach": {
       "name": "Stomach",
-      "dice": 0.8584,
-      "vol_ref_ml": 130.6,
-      "vol_ai_ml": 165.1,
-      "vol_diff_pct": 26.4,
-      "agree_vox": 4700,
-      "ai_only_vox": 1414,
-      "missed_vox": 136
+      "dice": 0.9544,
+      "vol_ref_ml": 181.6,
+      "vol_ai_ml": 185.0,
+      "vol_diff_pct": 1.9,
+      "agree_vox": 51826,
+      "ai_only_vox": 2979,
+      "missed_vox": 1968
      },
      "aorta": {
       "name": "Aorta",
-      "dice": 0.6722,
-      "vol_ref_ml": 49.7,
-      "vol_ai_ml": 25.1,
-      "vol_diff_pct": -49.4,
-      "agree_vox": 931,
-      "ai_only_vox": 0,
-      "missed_vox": 908
+      "dice": 0.9301,
+      "vol_ref_ml": 119.4,
+      "vol_ai_ml": 118.9,
+      "vol_diff_pct": -0.4,
+      "agree_vox": 32835,
+      "ai_only_vox": 2403,
+      "missed_vox": 2536
      },
      "inferior_vena_cava": {
       "name": "Inferior vena cava",
-      "dice": 0.9294,
-      "vol_ref_ml": 61.2,
-      "vol_ai_ml": 56.6,
-      "vol_diff_pct": -7.4,
-      "agree_vox": 2028,
-      "ai_only_vox": 70,
-      "missed_vox": 238
+      "dice": 0.9387,
+      "vol_ref_ml": 74.1,
+      "vol_ai_ml": 75.6,
+      "vol_diff_pct": 1.9,
+      "agree_vox": 20819,
+      "ai_only_vox": 1567,
+      "missed_vox": 1150
      },
      "esophagus": {
       "name": "Oesophagus",
-      "dice": null,
-      "vol_ref_ml": 0.0,
-      "vol_ai_ml": 0.0,
-      "vol_diff_pct": null,
-      "agree_vox": 0,
-      "ai_only_vox": 0,
-      "missed_vox": 0
+      "dice": 0.9467,
+      "vol_ref_ml": 13.1,
+      "vol_ai_ml": 12.6,
+      "vol_diff_pct": -3.4,
+      "agree_vox": 3608,
+      "ai_only_vox": 138,
+      "missed_vox": 268
      },
      "duodenum": {
       "name": "Duodenum",
-      "dice": 0.6965,
-      "vol_ref_ml": 62.6,
-      "vol_ai_ml": 33.5,
-      "vol_diff_pct": -46.6,
-      "agree_vox": 1239,
-      "ai_only_vox": 0,
-      "missed_vox": 1080
+      "dice": 0.889,
+      "vol_ref_ml": 67.4,
+      "vol_ai_ml": 70.1,
+      "vol_diff_pct": 4.0,
+      "agree_vox": 18101,
+      "ai_only_vox": 2660,
+      "missed_vox": 1859
      },
      "urinary_bladder": {
       "name": "Urinary bladder",
-      "dice": 0.9423,
-      "vol_ref_ml": 479.4,
-      "vol_ai_ml": 479.4,
-      "vol_diff_pct": 0.0,
-      "agree_vox": 16732,
-      "ai_only_vox": 1024,
-      "missed_vox": 1024
+      "dice": 0.922,
+      "vol_ref_ml": 99.8,
+      "vol_ai_ml": 91.0,
+      "vol_diff_pct": -8.8,
+      "agree_vox": 26065,
+      "ai_only_vox": 901,
+      "missed_vox": 3512
      }
     },
     "flags": [],
     "notes": [],
-    "voxel_ml": 0.027,
+    "voxel_ml": 0.003375,
     "spacing_mm": [
-     3.0,
-     3.0,
-     3.0
+     1.5,
+     1.5,
+     1.5
     ],
     "shape": [
-     122,
-     101,
-     112
+     255,
+     255,
+     287
     ]
    },
-   "title": "Demo case",
-   "description": "Female \u00b7 CT abdomen-pelvis (sample scan, 3 mm)",
-   "pathology": "",
-   "demo": true,
-   "demo_note": "DEMO DATA: simulated AI masks for testing the viewer. Replace with real results."
+   "title": "Case 1",
+   "description": "",
+   "pathology": ""
+  },
+  {
+   "id": "s1383",
+   "files": {
+    "ct": "s1383/ct.nii.gz",
+    "reference": "s1383/reference.nii.gz",
+    "ai": "s1383/ai.nii.gz",
+    "ai_fullres": "s1383/ai_fullres.nii.gz",
+    "metrics_csv": "s1383/metrics.csv"
+   },
+   "size_mb": {
+    "ct": 12.06,
+    "reference": 0.14,
+    "ai": 0.14,
+    "ai_fullres": 0.29,
+    "metrics_csv": 0.0
+   },
+   "web_spacing_mm": [
+    2.0,
+    2.0,
+    2.0
+   ],
+   "focus_mm": {
+    "liver": [
+     116.9,
+     154.4,
+     551.6
+    ],
+    "spleen": [
+     -93.1,
+     118.4,
+     579.6
+    ],
+    "pancreas": [
+     20.9,
+     194.4,
+     501.6
+    ],
+    "kidney_right": [
+     94.9,
+     120.4,
+     507.6
+    ],
+    "kidney_left": [
+     -89.1,
+     108.4,
+     513.6
+    ],
+    "gallbladder": [
+     90.9,
+     228.4,
+     511.6
+    ],
+    "stomach": [
+     -65.1,
+     184.4,
+     585.6
+    ],
+    "aorta": [
+     -21.1,
+     196.4,
+     435.6
+    ],
+    "inferior_vena_cava": [
+     30.9,
+     166.4,
+     531.6
+    ],
+    "esophagus": [
+     -7.1,
+     166.4,
+     601.6
+    ],
+    "duodenum": [
+     50.9,
+     176.4,
+     477.6
+    ],
+    "urinary_bladder": [
+     6.9,
+     170.4,
+     269.6
+    ]
+   },
+   "metrics": {
+    "case_id": "s1383",
+    "mean_dice": 0.9231,
+    "organs": {
+     "liver": {
+      "name": "Liver",
+      "dice": 0.9749,
+      "vol_ref_ml": 2060.7,
+      "vol_ai_ml": 2008.0,
+      "vol_diff_pct": -2.6,
+      "agree_vox": 587631,
+      "ai_only_vox": 7326,
+      "missed_vox": 22954
+     },
+     "spleen": {
+      "name": "Spleen",
+      "dice": 0.9746,
+      "vol_ref_ml": 274.2,
+      "vol_ai_ml": 273.8,
+      "vol_diff_pct": -0.2,
+      "agree_vox": 79123,
+      "ai_only_vox": 1994,
+      "missed_vox": 2123
+     },
+     "pancreas": {
+      "name": "Pancreas",
+      "dice": 0.9188,
+      "vol_ref_ml": 108.8,
+      "vol_ai_ml": 115.0,
+      "vol_diff_pct": 5.7,
+      "agree_vox": 30456,
+      "ai_only_vox": 3609,
+      "missed_vox": 1775
+     },
+     "kidney_right": {
+      "name": "Right kidney",
+      "dice": 0.9734,
+      "vol_ref_ml": 261.7,
+      "vol_ai_ml": 262.2,
+      "vol_diff_pct": 0.2,
+      "agree_vox": 75550,
+      "ai_only_vox": 2129,
+      "missed_vox": 2000
+     },
+     "kidney_left": {
+      "name": "Left kidney",
+      "dice": 0.9327,
+      "vol_ref_ml": 219.8,
+      "vol_ai_ml": 239.2,
+      "vol_diff_pct": 8.8,
+      "agree_vox": 63424,
+      "ai_only_vox": 7441,
+      "missed_vox": 1712
+     },
+     "gallbladder": {
+      "name": "Gallbladder",
+      "dice": 0.8816,
+      "vol_ref_ml": 75.1,
+      "vol_ai_ml": 65.8,
+      "vol_diff_pct": -12.4,
+      "agree_vox": 18402,
+      "ai_only_vox": 1093,
+      "missed_vox": 3848
+     },
+     "stomach": {
+      "name": "Stomach",
+      "dice": 0.9594,
+      "vol_ref_ml": 432.1,
+      "vol_ai_ml": 433.8,
+      "vol_diff_pct": 0.4,
+      "agree_vox": 123078,
+      "ai_only_vox": 5456,
+      "missed_vox": 4958
+     },
+     "aorta": {
+      "name": "Aorta",
+      "dice": 0.7366,
+      "vol_ref_ml": 436.1,
+      "vol_ai_ml": 256.4,
+      "vol_diff_pct": -41.2,
+      "agree_vox": 75575,
+      "ai_only_vox": 403,
+      "missed_vox": 53637
+     },
+     "inferior_vena_cava": {
+      "name": "Inferior vena cava",
+      "dice": 0.9023,
+      "vol_ref_ml": 86.9,
+      "vol_ai_ml": 89.8,
+      "vol_diff_pct": 3.3,
+      "agree_vox": 23625,
+      "ai_only_vox": 2984,
+      "missed_vox": 2133
+     },
+     "esophagus": {
+      "name": "Oesophagus",
+      "dice": 0.9466,
+      "vol_ref_ml": 10.2,
+      "vol_ai_ml": 10.2,
+      "vol_diff_pct": 0.2,
+      "agree_vox": 2863,
+      "ai_only_vox": 165,
+      "missed_vox": 158
+     },
+     "duodenum": {
+      "name": "Duodenum",
+      "dice": 0.9113,
+      "vol_ref_ml": 79.9,
+      "vol_ai_ml": 81.3,
+      "vol_diff_pct": 1.8,
+      "agree_vox": 21769,
+      "ai_only_vox": 2334,
+      "missed_vox": 1903
+     },
+     "urinary_bladder": {
+      "name": "Urinary bladder",
+      "dice": 0.9652,
+      "vol_ref_ml": 441.0,
+      "vol_ai_ml": 418.0,
+      "vol_diff_pct": -5.2,
+      "agree_vox": 122835,
+      "ai_only_vox": 1021,
+      "missed_vox": 7842
+     }
+    },
+    "flags": [],
+    "notes": [],
+    "voxel_ml": 0.003375,
+    "spacing_mm": [
+     1.5,
+     1.5,
+     1.5
+    ],
+    "shape": [
+     274,
+     274,
+     320
+    ]
+   },
+   "title": "Case 2",
+   "description": "",
+   "pathology": ""
+  },
+  {
+   "id": "s0477",
+   "files": {
+    "ct": "s0477/ct.nii.gz",
+    "reference": "s0477/reference.nii.gz",
+    "ai": "s0477/ai.nii.gz",
+    "ai_fullres": "s0477/ai_fullres.nii.gz",
+    "metrics_csv": "s0477/metrics.csv"
+   },
+   "size_mb": {
+    "ct": 11.93,
+    "reference": 0.12,
+    "ai": 0.12,
+    "ai_fullres": 0.25,
+    "metrics_csv": 0.0
+   },
+   "web_spacing_mm": [
+    2.0,
+    2.0,
+    2.0
+   ],
+   "focus_mm": {
+    "liver": [
+     90.9,
+     151.4,
+     745.5
+    ],
+    "spleen": [
+     -85.1,
+     97.4,
+     745.5
+    ],
+    "pancreas": [
+     -29.1,
+     179.4,
+     683.5
+    ],
+    "kidney_right": [
+     66.9,
+     117.4,
+     683.5
+    ],
+    "kidney_left": [
+     -37.1,
+     113.4,
+     727.5
+    ],
+    "gallbladder": [
+     46.9,
+     211.4,
+     699.5
+    ],
+    "stomach": [
+     -73.1,
+     181.4,
+     669.5
+    ],
+    "aorta": [
+     18.9,
+     181.4,
+     869.5
+    ],
+    "inferior_vena_cava": [
+     22.9,
+     177.4,
+     769.5
+    ],
+    "esophagus": [
+     -7.1,
+     169.4,
+     759.5
+    ],
+    "duodenum": [
+     -1.1,
+     207.4,
+     703.5
+    ],
+    "urinary_bladder": [
+     -1.1,
+     163.4,
+     463.5
+    ]
+   },
+   "metrics": {
+    "case_id": "s0477",
+    "mean_dice": 0.9185,
+    "organs": {
+     "liver": {
+      "name": "Liver",
+      "dice": 0.9776,
+      "vol_ref_ml": 1249.2,
+      "vol_ai_ml": 1229.7,
+      "vol_diff_pct": -1.6,
+      "agree_vox": 359040,
+      "ai_only_vox": 5320,
+      "missed_vox": 11096
+     },
+     "spleen": {
+      "name": "Spleen",
+      "dice": 0.9566,
+      "vol_ref_ml": 193.9,
+      "vol_ai_ml": 188.1,
+      "vol_diff_pct": -3.0,
+      "agree_vox": 54128,
+      "ai_only_vox": 1591,
+      "missed_vox": 3323
+     },
+     "pancreas": {
+      "name": "Pancreas",
+      "dice": 0.853,
+      "vol_ref_ml": 52.3,
+      "vol_ai_ml": 58.4,
+      "vol_diff_pct": 11.6,
+      "agree_vox": 13994,
+      "ai_only_vox": 3309,
+      "missed_vox": 1513
+     },
+     "kidney_right": {
+      "name": "Right kidney",
+      "dice": 0.9524,
+      "vol_ref_ml": 122.8,
+      "vol_ai_ml": 130.2,
+      "vol_diff_pct": 6.0,
+      "agree_vox": 35701,
+      "ai_only_vox": 2883,
+      "missed_vox": 689
+     },
+     "kidney_left": {
+      "name": "Left kidney",
+      "dice": 0.9604,
+      "vol_ref_ml": 121.9,
+      "vol_ai_ml": 123.3,
+      "vol_diff_pct": 1.2,
+      "agree_vox": 34881,
+      "ai_only_vox": 1651,
+      "missed_vox": 1223
+     },
+     "gallbladder": {
+      "name": "Gallbladder",
+      "dice": 0.8285,
+      "vol_ref_ml": 10.4,
+      "vol_ai_ml": 12.2,
+      "vol_diff_pct": 17.0,
+      "agree_vox": 2772,
+      "ai_only_vox": 836,
+      "missed_vox": 312
+     },
+     "stomach": {
+      "name": "Stomach",
+      "dice": 0.9332,
+      "vol_ref_ml": 468.9,
+      "vol_ai_ml": 443.8,
+      "vol_diff_pct": -5.4,
+      "agree_vox": 126183,
+      "ai_only_vox": 5309,
+      "missed_vox": 12750
+     },
+     "aorta": {
+      "name": "Aorta",
+      "dice": 0.9539,
+      "vol_ref_ml": 286.2,
+      "vol_ai_ml": 281.3,
+      "vol_diff_pct": -1.7,
+      "agree_vox": 80195,
+      "ai_only_vox": 3166,
+      "missed_vox": 4592
+     },
+     "inferior_vena_cava": {
+      "name": "Inferior vena cava",
+      "dice": 0.9406,
+      "vol_ref_ml": 68.1,
+      "vol_ai_ml": 70.4,
+      "vol_diff_pct": 3.3,
+      "agree_vox": 19305,
+      "ai_only_vox": 1553,
+      "missed_vox": 884
+     },
+     "esophagus": {
+      "name": "Oesophagus",
+      "dice": 0.9082,
+      "vol_ref_ml": 31.5,
+      "vol_ai_ml": 29.7,
+      "vol_diff_pct": -5.8,
+      "agree_vox": 8243,
+      "ai_only_vox": 564,
+      "missed_vox": 1103
+     },
+     "duodenum": {
+      "name": "Duodenum",
+      "dice": 0.8313,
+      "vol_ref_ml": 74.6,
+      "vol_ai_ml": 64.6,
+      "vol_diff_pct": -13.4,
+      "agree_vox": 17148,
+      "ai_only_vox": 1998,
+      "missed_vox": 4961
+     },
+     "urinary_bladder": {
+      "name": "Urinary bladder",
+      "dice": 0.9257,
+      "vol_ref_ml": 107.5,
+      "vol_ai_ml": 95.1,
+      "vol_diff_pct": -11.5,
+      "agree_vox": 27784,
+      "ai_only_vox": 394,
+      "missed_vox": 4064
+     }
+    },
+    "flags": [],
+    "notes": [],
+    "voxel_ml": 0.003375,
+    "spacing_mm": [
+     1.5,
+     1.5,
+     1.5
+    ],
+    "shape": [
+     243,
+     243,
+     404
+    ]
+   },
+   "title": "Case 3",
+   "description": "",
+   "pathology": ""
+  },
+  {
+   "id": "s0950",
+   "files": {
+    "ct": "s0950/ct.nii.gz",
+    "reference": "s0950/reference.nii.gz",
+    "ai": "s0950/ai.nii.gz",
+    "ai_fullres": "s0950/ai_fullres.nii.gz",
+    "metrics_csv": "s0950/metrics.csv"
+   },
+   "size_mb": {
+    "ct": 10.85,
+    "reference": 0.11,
+    "ai": 0.11,
+    "ai_fullres": 0.24,
+    "metrics_csv": 0.0
+   },
+   "web_spacing_mm": [
+    2.0,
+    2.0,
+    2.0
+   ],
+   "focus_mm": {
+    "liver": [
+     111.3,
+     135.3,
+     372.1
+    ],
+    "spleen": [
+     -102.7,
+     109.3,
+     354.1
+    ],
+    "pancreas": [
+     43.3,
+     153.3,
+     320.1
+    ],
+    "kidney_right": [
+     83.3,
+     91.3,
+     340.1
+    ],
+    "kidney_left": [
+     -52.7,
+     95.3,
+     340.1
+    ],
+    "gallbladder": [
+     77.3,
+     175.3,
+     356.1
+    ],
+    "stomach": [
+     -46.7,
+     151.3,
+     390.1
+    ],
+    "aorta": [
+     13.3,
+     189.3,
+     498.1
+    ],
+    "inferior_vena_cava": [
+     25.3,
+     135.3,
+     372.1
+    ],
+    "esophagus": [
+     -16.7,
+     141.3,
+     414.1
+    ],
+    "duodenum": [
+     67.3,
+     135.3,
+     288.1
+    ],
+    "urinary_bladder": [
+     1.3,
+     149.3,
+     98.1
+    ]
+   },
+   "metrics": {
+    "case_id": "s0950",
+    "mean_dice": 0.9162,
+    "organs": {
+     "liver": {
+      "name": "Liver",
+      "dice": 0.979,
+      "vol_ref_ml": 1186.1,
+      "vol_ai_ml": 1175.4,
+      "vol_diff_pct": -0.9,
+      "agree_vox": 342502,
+      "ai_only_vox": 5775,
+      "missed_vox": 8938
+     },
+     "spleen": {
+      "name": "Spleen",
+      "dice": 0.9694,
+      "vol_ref_ml": 222.5,
+      "vol_ai_ml": 224.1,
+      "vol_diff_pct": 0.7,
+      "agree_vox": 64146,
+      "ai_only_vox": 2252,
+      "missed_vox": 1792
+     },
+     "pancreas": {
+      "name": "Pancreas",
+      "dice": 0.9115,
+      "vol_ref_ml": 52.7,
+      "vol_ai_ml": 51.3,
+      "vol_diff_pct": -2.6,
+      "agree_vox": 14045,
+      "ai_only_vox": 1160,
+      "missed_vox": 1566
+     },
+     "kidney_right": {
+      "name": "Right kidney",
+      "dice": 0.9508,
+      "vol_ref_ml": 129.9,
+      "vol_ai_ml": 138.5,
+      "vol_diff_pct": 6.6,
+      "agree_vox": 37807,
+      "ai_only_vox": 3227,
+      "missed_vox": 686
+     },
+     "kidney_left": {
+      "name": "Left kidney",
+      "dice": 0.8622,
+      "vol_ref_ml": 125.7,
+      "vol_ai_ml": 153.7,
+      "vol_diff_pct": 22.2,
+      "agree_vox": 35685,
+      "ai_only_vox": 9841,
+      "missed_vox": 1563
+     },
+     "gallbladder": {
+      "name": "Gallbladder",
+      "dice": 0.7715,
+      "vol_ref_ml": 10.8,
+      "vol_ai_ml": 9.4,
+      "vol_diff_pct": -13.1,
+      "agree_vox": 2315,
+      "ai_only_vox": 475,
+      "missed_vox": 896
+     },
+     "stomach": {
+      "name": "Stomach",
+      "dice": 0.9302,
+      "vol_ref_ml": 122.3,
+      "vol_ai_ml": 132.8,
+      "vol_diff_pct": 8.6,
+      "agree_vox": 35160,
+      "ai_only_vox": 4190,
+      "missed_vox": 1089
+     },
+     "aorta": {
+      "name": "Aorta",
+      "dice": 0.9574,
+      "vol_ref_ml": 379.4,
+      "vol_ai_ml": 398.3,
+      "vol_diff_pct": 5.0,
+      "agree_vox": 110306,
+      "ai_only_vox": 7707,
+      "missed_vox": 2108
+     },
+     "inferior_vena_cava": {
+      "name": "Inferior vena cava",
+      "dice": 0.9095,
+      "vol_ref_ml": 72.6,
+      "vol_ai_ml": 73.1,
+      "vol_diff_pct": 0.7,
+      "agree_vox": 19638,
+      "ai_only_vox": 2030,
+      "missed_vox": 1879
+     },
+     "esophagus": {
+      "name": "Oesophagus",
+      "dice": 0.9063,
+      "vol_ref_ml": 40.0,
+      "vol_ai_ml": 39.4,
+      "vol_diff_pct": -1.7,
+      "agree_vox": 10660,
+      "ai_only_vox": 1001,
+      "missed_vox": 1203
+     },
+     "duodenum": {
+      "name": "Duodenum",
+      "dice": 0.9135,
+      "vol_ref_ml": 69.1,
+      "vol_ai_ml": 68.0,
+      "vol_diff_pct": -1.6,
+      "agree_vox": 18544,
+      "ai_only_vox": 1592,
+      "missed_vox": 1918
+     },
+     "urinary_bladder": {
+      "name": "Urinary bladder",
+      "dice": 0.933,
+      "vol_ref_ml": 154.5,
+      "vol_ai_ml": 143.7,
+      "vol_diff_pct": -7.0,
+      "agree_vox": 41215,
+      "ai_only_vox": 1368,
+      "missed_vox": 4551
+     }
+    },
+    "flags": [],
+    "notes": [],
+    "voxel_ml": 0.003375,
+    "spacing_mm": [
+     1.5,
+     1.5,
+     1.5
+    ],
+    "shape": [
+     232,
+     232,
+     399
+    ]
+   },
+   "title": "Case 4",
+   "description": "",
+   "pathology": ""
+  },
+  {
+   "id": "s0963",
+   "files": {
+    "ct": "s0963/ct.nii.gz",
+    "reference": "s0963/reference.nii.gz",
+    "ai": "s0963/ai.nii.gz",
+    "ai_fullres": "s0963/ai_fullres.nii.gz",
+    "metrics_csv": "s0963/metrics.csv"
+   },
+   "size_mb": {
+    "ct": 9.35,
+    "reference": 0.09,
+    "ai": 0.09,
+    "ai_fullres": 0.19,
+    "metrics_csv": 0.0
+   },
+   "web_spacing_mm": [
+    2.0,
+    2.0,
+    2.0
+   ],
+   "focus_mm": {
+    "liver": [
+     64.3,
+     121.3,
+     -624.9
+    ],
+    "spleen": [
+     -71.7,
+     87.3,
+     -602.9
+    ],
+    "pancreas": [
+     4.3,
+     171.3,
+     -648.9
+    ],
+    "kidney_right": [
+     54.3,
+     121.3,
+     -710.9
+    ],
+    "kidney_left": [
+     -75.7,
+     109.3,
+     -648.9
+    ],
+    "gallbladder": [
+     50.3,
+     163.3,
+     -666.9
+    ],
+    "stomach": [
+     -51.7,
+     133.3,
+     -580.9
+    ],
+    "aorta": [
+     14.3,
+     179.3,
+     -502.9
+    ],
+    "inferior_vena_cava": [
+     20.3,
+     143.3,
+     -630.9
+    ],
+    "esophagus": [
+     8.3,
+     159.3,
+     -420.9
+    ],
+    "duodenum": [
+     26.3,
+     173.3,
+     -654.9
+    ],
+    "urinary_bladder": [
+     -15.7,
+     145.3,
+     -900.9
+    ]
+   },
+   "metrics": {
+    "case_id": "s0963",
+    "mean_dice": 0.9022,
+    "organs": {
+     "liver": {
+      "name": "Liver",
+      "dice": 0.9763,
+      "vol_ref_ml": 1105.5,
+      "vol_ai_ml": 1099.1,
+      "vol_diff_pct": -0.6,
+      "agree_vox": 318864,
+      "ai_only_vox": 6797,
+      "missed_vox": 8697
+     },
+     "spleen": {
+      "name": "Spleen",
+      "dice": 0.9711,
+      "vol_ref_ml": 157.9,
+      "vol_ai_ml": 158.4,
+      "vol_diff_pct": 0.3,
+      "agree_vox": 45506,
+      "ai_only_vox": 1430,
+      "missed_vox": 1278
+     },
+     "pancreas": {
+      "name": "Pancreas",
+      "dice": 0.7272,
+      "vol_ref_ml": 19.6,
+      "vol_ai_ml": 14.6,
+      "vol_diff_pct": -25.4,
+      "agree_vox": 3683,
+      "ai_only_vox": 646,
+      "missed_vox": 2117
+     },
+     "kidney_right": {
+      "name": "Right kidney",
+      "dice": 0.9287,
+      "vol_ref_ml": 109.5,
+      "vol_ai_ml": 121.4,
+      "vol_diff_pct": 10.9,
+      "agree_vox": 31768,
+      "ai_only_vox": 4209,
+      "missed_vox": 666
+     },
+     "kidney_left": {
+      "name": "Left kidney",
+      "dice": 0.9543,
+      "vol_ref_ml": 96.0,
+      "vol_ai_ml": 98.2,
+      "vol_diff_pct": 2.2,
+      "agree_vox": 27459,
+      "ai_only_vox": 1634,
+      "missed_vox": 997
+     },
+     "gallbladder": {
+      "name": "Gallbladder",
+      "dice": 0.7969,
+      "vol_ref_ml": 7.8,
+      "vol_ai_ml": 6.6,
+      "vol_diff_pct": -15.7,
+      "agree_vox": 1697,
+      "ai_only_vox": 251,
+      "missed_vox": 614
+     },
+     "stomach": {
+      "name": "Stomach",
+      "dice": 0.9588,
+      "vol_ref_ml": 188.8,
+      "vol_ai_ml": 195.4,
+      "vol_diff_pct": 3.5,
+      "agree_vox": 54574,
+      "ai_only_vox": 3318,
+      "missed_vox": 1368
+     },
+     "aorta": {
+      "name": "Aorta",
+      "dice": 0.9268,
+      "vol_ref_ml": 128.3,
+      "vol_ai_ml": 121.6,
+      "vol_diff_pct": -5.2,
+      "agree_vox": 34324,
+      "ai_only_vox": 1718,
+      "missed_vox": 3705
+     },
+     "inferior_vena_cava": {
+      "name": "Inferior vena cava",
+      "dice": 0.892,
+      "vol_ref_ml": 58.0,
+      "vol_ai_ml": 58.4,
+      "vol_diff_pct": 0.7,
+      "agree_vox": 15392,
+      "ai_only_vox": 1921,
+      "missed_vox": 1808
+     },
+     "esophagus": {
+      "name": "Oesophagus",
+      "dice": 0.9082,
+      "vol_ref_ml": 28.7,
+      "vol_ai_ml": 28.4,
+      "vol_diff_pct": -1.0,
+      "agree_vox": 7677,
+      "ai_only_vox": 734,
+      "missed_vox": 818
+     },
+     "duodenum": {
+      "name": "Duodenum",
+      "dice": 0.8494,
+      "vol_ref_ml": 29.3,
+      "vol_ai_ml": 29.9,
+      "vol_diff_pct": 2.2,
+      "agree_vox": 7450,
+      "ai_only_vox": 1414,
+      "missed_vox": 1227
+     },
+     "urinary_bladder": {
+      "name": "Urinary bladder",
+      "dice": 0.9362,
+      "vol_ref_ml": 186.7,
+      "vol_ai_ml": 190.9,
+      "vol_diff_pct": 2.2,
+      "agree_vox": 52374,
+      "ai_only_vox": 4183,
+      "missed_vox": 2957
+     }
+    },
+    "flags": [],
+    "notes": [],
+    "voxel_ml": 0.003375,
+    "spacing_mm": [
+     1.5,
+     1.5,
+     1.5
+    ],
+    "shape": [
+     208,
+     208,
+     402
+    ]
+   },
+   "title": "Case 5",
+   "description": "",
+   "pathology": ""
   }
  ]
 }

@@ -50,6 +50,9 @@
     if (!cases().length) return fatal('No cases in data/cases.json yet.');
     if (state.manifest.version) $('#version').textContent = 'v' + state.manifest.version;
     buildCaseSelect();
+    addHelpPanel();                 // DAY 3: puts the "How to use" box at the top of the left panel
+    addNoteBox();                   // DAY 3: makes the empty box where an organ's teaching note appears
+    await loadNotes();              // DAY 3: reads organ_notes.json (the website still works if it is missing)
     wireControls();
     readHash();
     if (window.innerWidth < 700) { state.layout = 'axial'; pressOnly('layout', 'axial'); } // phones: one big view
@@ -224,6 +227,7 @@
         const mm = (c.focus_mm || {})[o.key];
         if (!state.visible.has(o.index)) { state.visible.add(o.index); cb.checked = true; applyLayers(); }
         if (mm) jumpTo(mm);
+        showNote(o);                // DAY 3: shows this organ's teaching note under the organ list
       });
       const chip = document.createElement('span');
       const d = m ? m.dice : null;
@@ -375,6 +379,74 @@
     }
     $('#readout').textContent = parts.join('  ·  ');
   }
+
+  // ================================================================== DAY 3 ADDITIONS (13 Oct 2026)
+  // A "How to use" box and short teaching notes for each organ. Every line is explained on its right.
+  let organNotes = {};                                              // organ key (e.g. "liver") -> its teaching note
+  let notesStatus = '';                                             // a status line, e.g. "Draft – to be checked by faculty"
+
+  async function loadNotes() {                                      // reads the file organ_notes.json once, at start-up
+    try {                                                           // "try": if any line below fails, jump to "catch"
+      const r = await fetch('organ_notes.json', { cache: 'no-cache' }); // asks the web server for a fresh copy of the file
+      if (!r.ok) return;                                            // file not found -> no notes, the website still works
+      const j = await r.json();                                     // turns the file's text into a JavaScript object
+      organNotes = j.notes || {};                                   // keeps the "notes" part (organ key -> text)
+      notesStatus = j.status || '';                                 // keeps the "status" line (may be empty)
+    } catch (e) {                                                   // reached only if the file is broken or unreachable
+      organNotes = {};                                              // no notes, but no crash either
+    }                                                               // end of try/catch
+  }                                                                 // end of loadNotes
+
+  function addHelpPanel() {                                         // builds the "How to use" box
+    const panel = document.querySelector('.controls');              // finds the left panel of the page
+    const section = document.createElement('section');              // a new section, styled like the other sections
+    const help = document.createElement('details');                 // <details> opens and closes when its title is clicked
+    help.className = 'help';                                        // its look is set by ".help" in app.css
+    help.open = window.innerWidth >= 700;                           // open on laptops, closed on phones (saves space)
+    help.innerHTML =                                                // the box's content, written as HTML text:
+      '<summary>How to use this website</summary>' +                //   the clickable title line
+      '<ol>' +                                                      //   a numbered list starts
+      '<li>Choose a scan in <b>Case</b>.</li>' +                    //   step 1
+      '<li><b>Expert</b> shows the experts\' outlines, <b>AI</b> shows the VISTA-3D outlines, ' + // step 2 (part 1)
+      '<b>Compare</b> shows agree (green), AI only (orange) and missed by AI (blue).</li>' +   //   step 2 (part 2)
+      '<li>Click on the picture to move the yellow cross; the top line names the organ under it.</li>' + // step 3
+      '<li>Use the mouse wheel to move through the slices.</li>' +  //   step 4
+      '<li>Tick boxes show or hide organs. Click an organ\'s <b>name</b> to jump to it and read a short note.</li>' + // step 5
+      '<li>The table on the right gives Dice scores (1.00 = AI and experts agree fully).</li>' + // step 6
+      '</ol>';                                                      //   the numbered list ends
+    section.appendChild(help);                                      // puts the box inside the new section
+    panel.prepend(section);                                         // puts the section at the very top of the left panel
+  }                                                                 // end of addHelpPanel
+
+  function addNoteBox() {                                           // builds the (still empty) teaching-note box
+    const box = document.createElement('div');                      // a plain box
+    box.id = 'organNote';                                           // its name, so showNote() can find it later
+    box.className = 'organ-note';                                   // its look is set by ".organ-note" in app.css
+    box.hidden = true;                                              // hidden until an organ name is clicked
+    $('#organList').parentElement.appendChild(box);                 // placed at the end of the "Organs" section
+  }                                                                 // end of addNoteBox
+
+  function showNote(o) {                                            // fills the note box for organ "o" and shows it
+    const box = $('#organNote');                                    // finds the note box made by addNoteBox()
+    const text = organNotes[o.key];                                 // looks up this organ's note (may be missing)
+    if (!box) return;                                               // safety: no box -> nothing to do
+    if (!text) { box.hidden = true; return; }                       // no note for this organ -> box stays hidden
+    box.innerHTML = '';                                             // clears the previous organ's note
+    const title = document.createElement('strong');                 // bold title line
+    title.textContent = o.name;                                     // e.g. "Pancreas"
+    const p = document.createElement('p');                          // paragraph for the note itself
+    p.textContent = text;                                           // textContent shows the text exactly, never as code
+    box.append(title, p);                                           // puts title and note into the box
+    if (notesStatus) {                                              // if a status line exists ...
+      const s = document.createElement('small');                    //   ... a small grey line is made
+      s.textContent = notesStatus;                                  //   ... e.g. "Draft – to be checked by faculty"
+      box.append(s);                                                //   ... and added under the note
+    }                                                               // end of if
+    box.style.borderLeftColor = `rgb(${o.color.join(',')})`;        // the left edge takes the organ's own colour
+    box.hidden = false;                                             // the box is now shown
+    box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });   // the panel scrolls so the note can be read
+  }                                                                 // end of showNote
+  // ================================================================== END OF DAY 3 ADDITIONS
 
   // ------------------------------------------------------------------ helpers
   function showLoading(on) { $('#loading').hidden = !on; }

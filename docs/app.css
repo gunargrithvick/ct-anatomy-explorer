@@ -119,3 +119,14 @@ select { padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); ba
 }
 
 .foot .team { margin-top: 4px; font-weight: 600; color: var(--ink); }
+
+/* ===== DAY 3 ADDITIONS (13 Oct 2026): "How to use" box and organ teaching notes ===== */
+.help { background: var(--chip); border-radius: 8px; padding: 8px 10px; font-size: 13px; } /* grey rounded box */
+.help summary { cursor: pointer; font-weight: 700; color: var(--accent); }  /* clickable title in the accent colour */
+.help ol { margin: 8px 0 0; padding-left: 18px; }                          /* numbered list with a small indent */
+.help li { margin: 3px 0; }                                                 /* a little space between the steps */
+.organ-note { margin-top: 8px; background: var(--chip); border-left: 4px solid var(--accent); /* note box: grey, coloured left edge */
+              border-radius: 6px; padding: 8px 10px; font-size: 13px; }    /* rounded corners, inner space, text size */
+.organ-note p { margin: 4px 0; }                                            /* space above and below the note text */
+.organ-note small { color: var(--muted); }                                  /* status line in grey */
+.organ-note[hidden] { display: none; }                                      /* "hidden" really hides the box */

@@ -1,13 +1,10 @@
 # CT Anatomy Explorer
 
-An educational web app that shows how an AI model outlines organs on CT scans and how closely it agrees with
-expert outlines. Built with **MONAI** (the open-source medical-imaging AI framework) and the **VISTA-3D** model,
-on public CT scans from the **TotalSegmentator** dataset. Runs in any browser, including phones.
+A free teaching website for CT anatomy. On public CT scans, two outlines are shown for each organ: one drawn by experts and one made by an AI model (VISTA-3D, from MONAI). The two outlines can be compared, and each organ can be learned with a short note.
 
 > **Educational use only.** Not for diagnosis or any clinical decision.
 
-![Viewer showing the comparison view (demo data)](guide/img/viewer_demo_compare.png)
-*Screenshot with the built-in demo data (simulated AI masks). Real VISTA-3D results replace it on Day 2.*
+**Open the website:** https://gunargrithvick.github.io/ct-anatomy-explorer/
 
 ## What it does
 
@@ -26,7 +23,7 @@ on public CT scans from the **TotalSegmentator** dataset. Runs in any browser, i
 docs/                 the website (GitHub Pages serves this folder)
   index.html, app.js, app.css
   vendor/niivue.umd.js  NiiVue viewer library (BSD-2-Clause, kept here so the site has no outside dependencies)
-  data/               scans + cases.json  (demo data now; replaced by real results)
+  data/               the 5 scans, the outlines and cases.json
 notebooks/            ct_anatomy_explorer_kaggle.ipynb  - runs the AI pipeline on a free Kaggle GPU
 pipeline/             the same pipeline as Python modules (for a rented GPU or a lab PC)
 tools/build_notebook.py   rebuilds the notebook after editing pipeline/
@@ -64,6 +61,28 @@ python -m pipeline.run_all --n-cases 10 --n-web 5      # results in outputs/, zi
 python tests/test_pipeline.py                          # quick self-check
 ```
 
+## Results
+
+Results for 5 CT scans shown on the website, v0.5, 14 Oct 2026.
+Dice: 1.00 = the AI outline and the expert outline are the same; 0 = no overlap.
+
+| Organ | Scans | Mean Dice | Lowest Dice | Mean volume difference |
+|---|---|---|---|---|
+| Liver | 5 | 0.98 | 0.97 | 1.6% |
+| Spleen | 5 | 0.96 | 0.94 | 2.6% |
+| Stomach | 5 | 0.95 | 0.93 | 4.0% |
+| Right kidney | 5 | 0.95 | 0.93 | 5.6% |
+| Urinary bladder | 5 | 0.94 | 0.92 | 6.9% |
+| Left kidney | 5 | 0.93 | 0.86 | 8.0% |
+| Inferior vena cava | 5 | 0.92 | 0.89 | 2.0% |
+| Oesophagus | 5 | 0.92 | 0.91 | 2.4% |
+| Aorta | 5 | 0.90 | 0.74 | 10.7% |
+| Duodenum | 5 | 0.88 | 0.83 | 4.6% |
+| Pancreas | 5 | 0.86 | 0.73 | 9.9% |
+| Gallbladder | 5 | 0.83 | 0.77 | 13.8% |
+
+The mean of the five scan-level mean Dice scores is 0.92. Liver had the highest mean Dice (0.98), while gallbladder had the lowest (0.83). The lowest individual organ Dice was 0.73 for pancreas. These results describe agreement with expert outlines, not clinical accuracy. The small public sample and possible overlap with model-training data limit interpretation. The website is intended for teaching anatomy only.
+
 ## How it works
 
 1. **Data** – downloads the TotalSegmentator small subset (102 CT scans with expert-checked masks; Zenodo record 10047263).
@@ -99,6 +118,13 @@ large public CT collections that may include scans like these, so the scores sho
   under the NVIDIA License, which allows non-commercial use only ("research or evaluation purposes"). Treat the AI masks
   produced here the same way, and check the licence before any commercial use.
 - **Viewer:** [NiiVue](https://github.com/niivue/niivue), BSD-2-Clause (`docs/vendor/NIIVUE_LICENSE.txt`).
-- **Demo case:** sample CT and masks from the TotalSegmentator GitHub test files (Apache-2.0); its "AI" masks are simulated.
+- **Website data:** five selected real cases from the TotalSegmentator small subset; the website uses real AI results rather than demo masks.
 
-Built by the DSU AI Factory internship team (Data & Health AI). Add your names here.
+Built by Guna Rithvick and Ayushi N, DSU AI Factory interns.
+
+## Versions
+
+| Version | Date | What changed |
+|---|---|---|
+| v0.5 | 14 Oct 2026 | First public release: 5 scans, 12 organs, Expert / AI / Compare views, Dice and volume table, teaching notes, demo video |
+| v1.0 | planned for 31 Oct 2026 | Faculty-reviewed version for teaching |

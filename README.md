@@ -63,25 +63,25 @@ python tests/test_pipeline.py                          # quick self-check
 
 ## Results
 
-Results for 5 CT scans shown on the website, v0.5, 14 Oct 2026.
+Results for 10 CT scans (all scans that were run; the website shows 5 of them), v0.5, 14 Oct 2026.
 Dice: 1.00 = the AI outline and the expert outline are the same; 0 = no overlap.
 
 | Organ | Scans | Mean Dice | Lowest Dice | Mean volume difference |
 |---|---|---|---|---|
-| Liver | 5 | 0.98 | 0.97 | 1.6% |
-| Spleen | 5 | 0.96 | 0.94 | 2.6% |
-| Stomach | 5 | 0.95 | 0.93 | 4.0% |
-| Right kidney | 5 | 0.95 | 0.93 | 5.6% |
-| Urinary bladder | 5 | 0.94 | 0.92 | 6.9% |
-| Left kidney | 5 | 0.93 | 0.86 | 8.0% |
-| Inferior vena cava | 5 | 0.92 | 0.89 | 2.0% |
-| Oesophagus | 5 | 0.92 | 0.91 | 2.4% |
-| Aorta | 5 | 0.90 | 0.74 | 10.7% |
-| Duodenum | 5 | 0.88 | 0.83 | 4.6% |
-| Pancreas | 5 | 0.86 | 0.73 | 9.9% |
-| Gallbladder | 5 | 0.83 | 0.77 | 13.8% |
+| Liver | 10 | 0.97 | 0.95 | 2.2% |
+| Right kidney | 10 | 0.95 | 0.93 | 5.1% |
+| Left kidney | 10 | 0.95 | 0.86 | 4.8% |
+| Spleen | 10 | 0.95 | 0.90 | 4.4% |
+| Aorta | 10 | 0.92 | 0.74 | 8.2% |
+| Urinary bladder | 10 | 0.91 | 0.71 | 13.1% |
+| Oesophagus | 10 | 0.91 | 0.83 | 4.4% |
+| Inferior vena cava | 10 | 0.90 | 0.83 | 2.3% |
+| Stomach | 10 | 0.90 | 0.73 | 11.8% |
+| Pancreas | 10 | 0.84 | 0.73 | 12.7% |
+| Gallbladder | 10 | 0.81 | 0.33 | 16.6% |
+| Duodenum | 10 | 0.72 | 0.36 | 22.0% |
 
-The mean of the five scan-level mean Dice scores is 0.92. Liver had the highest mean Dice (0.98), while gallbladder had the lowest (0.83). The lowest individual organ Dice was 0.73 for pancreas. These results describe agreement with expert outlines, not clinical accuracy. The small public sample and possible overlap with model-training data limit interpretation. The website is intended for teaching anatomy only.
+AI time per scan on the Kaggle GPU: 33 s on average (fastest 27 s, slowest 40 s, 10 scans); peak GPU memory 4.2 GB.
 
 ## How it works
 

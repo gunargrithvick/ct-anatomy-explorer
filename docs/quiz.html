@@ -1,0 +1,40 @@
+<!DOCTYPE html>                                                             <!-- this file is a web page (HTML5) -->
+<html lang="en">                                                            <!-- the page starts; its language is English -->
+<head>                                                                      <!-- the settings of the page (not shown as text) -->
+  <meta charset="utf-8">                                                    <!-- letters are stored as UTF-8, so – and × show correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">     <!-- the page fits the width of a phone screen -->
+  <title>Organ quiz – CT Anatomy Explorer</title>                           <!-- the name shown on the browser tab -->
+  <link rel="stylesheet" href="quiz.css">                                   <!-- the look of the quiz comes from quiz.css -->
+  <script src="quiz.js" defer></script>                                     <!-- the quiz program; "defer" runs it after the page is read -->
+</head>                                                                     <!-- end of the settings -->
+<body>                                                                      <!-- the visible part starts -->
+  <header class="quiz-top">                                                 <!-- the top part of the page -->
+    <a href="index.html" class="quiz-back">← Back to the viewer</a>         <!-- a link back to the main viewer page -->
+    <h1>Organ quiz</h1>                                                     <!-- the page title -->
+    <p>One organ is outlined in yellow on a CT image. Which organ is it?</p> <!-- the task in one sentence -->
+  </header>                                                                 <!-- end of the top part -->
+  <main>                                                                    <!-- the main part -->
+    <p id="quiz-message" class="quiz-message" hidden></p>                   <!-- an error message, hidden unless needed -->
+    <section id="quiz-card" class="quiz-card" hidden>                       <!-- the question card, shown after loading -->
+      <div class="quiz-bar"><span id="quiz-progress"></span><span id="quiz-score"></span></div> <!-- "Question 3 of 10" and the score -->
+      <figure class="quiz-figure">                                          <!-- the picture and its caption -->
+        <img id="quiz-image" src="" alt="">                                 <!-- the CT picture; the program fills in the file name -->
+        <figcaption id="quiz-view"></figcaption>                            <!-- the caption: axial or coronal view -->
+      </figure>                                                             <!-- end of the picture part -->
+      <div id="quiz-choices" class="quiz-choices"></div>                    <!-- the four answer buttons are put here by the program -->
+      <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>   <!-- "Correct!" or the right answer; read aloud by screen readers -->
+      <button id="quiz-next" type="button" class="quiz-next" hidden>Next question</button> <!-- shown after an answer -->
+    </section>                                                              <!-- end of the question card -->
+    <section id="quiz-end" class="quiz-card" hidden>                        <!-- the end card, shown after the last question -->
+      <h2 id="quiz-final"></h2>                                             <!-- "You scored 7 out of 10." -->
+      <h3 id="quiz-review-head">Organs to look at again</h3>                <!-- a heading for the wrong answers -->
+      <ul id="quiz-review"></ul>                                            <!-- the wrongly answered organs are listed here -->
+      <button id="quiz-again" type="button" class="quiz-next">Try a new round</button> <!-- starts a new round -->
+    </section>                                                              <!-- end of the end card -->
+  </main>                                                                   <!-- end of the main part -->
+  <footer class="quiz-foot">                                                <!-- the bottom part of the page -->
+    <p id="quiz-note"></p>                                                  <!-- the status line from the quiz file (draft / checked by) -->
+    <p>Teaching use only – not for diagnosis. Images: TotalSegmentator dataset (CC BY 4.0).</p> <!-- the safety note and the image credit -->
+  </footer>                                                                 <!-- end of the bottom part -->
+</body>                                                                     <!-- end of the visible part -->
+</html>                                                                     <!-- end of the page -->

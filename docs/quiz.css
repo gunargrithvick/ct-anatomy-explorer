@@ -1,0 +1,29 @@
+/* quiz.css – the look of the organ quiz (light and dark mode) */
+:root { --bg: #ffffff; --text: #1d1d1f; --card: #f4f6f8; --line: #c9d1d9; --accent: #1f6feb; --good: #1a7f37; --bad: #cf222e; } /* colours for light mode */
+@media (prefers-color-scheme: dark) {                              /* the next lines apply when the device is in dark mode */
+  :root { --bg: #0d1117; --text: #e6edf3; --card: #161b22; --line: #30363d; --accent: #58a6ff; --good: #3fb950; --bad: #f85149; } /* colours for dark mode */
+}                                                                  /* end of the dark-mode part */
+[hidden] { display: none !important; }                             /* anything marked "hidden" is really not shown */
+body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.5; } /* page colours and font */
+.quiz-top, main, .quiz-foot { max-width: 680px; margin: 0 auto; padding: 0 16px; } /* the three parts are centred and at most 680 px wide */
+.quiz-top h1 { margin: 8px 0 4px; font-size: 1.6rem; }            /* the page title */
+.quiz-back { color: var(--accent); text-decoration: none; display: inline-block; margin-top: 12px; } /* the "Back to the viewer" link */
+.quiz-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin: 12px 0; } /* a card with a thin border */
+.quiz-bar { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; } /* progress on the left, score on the right */
+.quiz-figure { margin: 0; text-align: center; }                    /* the picture is centred */
+.quiz-figure img { width: 100%; max-width: 480px; aspect-ratio: 1 / 1; object-fit: contain; background: #000; border-radius: 6px; } /* the CT picture, square, black around it */
+.quiz-figure figcaption { font-size: 0.85rem; opacity: 0.8; margin-top: 4px; } /* the caption under the picture */
+.quiz-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; } /* the four buttons in two columns */
+.quiz-choice { font: inherit; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--text); cursor: pointer; text-align: left; } /* one answer button */
+.quiz-choice:hover:not(:disabled) { border-color: var(--accent); } /* the border turns blue under the mouse */
+.quiz-choice.is-right { border: 2px solid var(--good); color: var(--good); font-weight: 600; } /* the right answer: green */
+.quiz-choice.is-wrong { border: 2px solid var(--bad); color: var(--bad); } /* a wrong choice: red */
+.quiz-feedback { min-height: 1.5em; margin: 12px 0 8px; }          /* the feedback line keeps its space even when empty */
+.quiz-feedback.good { color: var(--good); }                        /* feedback after a right answer: green */
+.quiz-feedback.bad { color: var(--bad); }                          /* feedback after a wrong answer: red */
+.quiz-next { font: inherit; padding: 10px 18px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; cursor: pointer; } /* the blue Next / Try again button */
+.quiz-message { background: #fff3cd; color: #664d03; padding: 10px; border-radius: 8px; } /* the error message box (yellow) */
+.quiz-foot { font-size: 0.8rem; opacity: 0.8; padding-bottom: 24px; } /* the small text at the bottom */
+@media (max-width: 420px) {                                         /* the next line applies to small phones */
+  .quiz-choices { grid-template-columns: 1fr; }                     /* the buttons are put under each other */
+}                                                                   /* end of the small-phone part */

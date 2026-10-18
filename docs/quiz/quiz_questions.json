@@ -1,0 +1,52 @@
+{
+ "version": "sample",
+ "made": "15 Oct 2026",
+ "note": "SAMPLE questions only – to be replaced by the real CT pictures today",
+ "organs": [
+  "Liver",
+  "Spleen",
+  "Pancreas",
+  "Right kidney",
+  "Left kidney",
+  "Gallbladder",
+  "Stomach",
+  "Aorta",
+  "Inferior vena cava",
+  "Oesophagus",
+  "Duodenum",
+  "Urinary bladder"
+ ],
+ "facts": {
+  "Liver": "The liver is the largest solid organ in the abdomen."
+ },
+ "questions": [
+  {
+   "image": "img/sample_1.svg",
+   "view": "axial",
+   "answer": "Liver",
+   "case": "sample",
+   "slice": 0
+  },
+  {
+   "image": "img/sample_2.svg",
+   "view": "axial",
+   "answer": "Spleen",
+   "case": "sample",
+   "slice": 0
+  },
+  {
+   "image": "img/sample_3.svg",
+   "view": "coronal",
+   "answer": "Right kidney",
+   "case": "sample",
+   "slice": 0
+  },
+  {
+   "image": "img/sample_4.svg",
+   "view": "coronal",
+   "answer": "Aorta",
+   "case": "sample",
+   "slice": 0
+  }
+ ]
+}

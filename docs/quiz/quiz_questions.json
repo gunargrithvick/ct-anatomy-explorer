@@ -1,7 +1,7 @@
 {
- "version": "sample",
- "made": "15 Oct 2026",
- "note": "SAMPLE questions only – to be replaced by the real CT pictures today",
+ "version": "draft",
+ "made": "",
+ "note": "Draft quiz – to be checked by faculty",
  "organs": [
   "Liver",
   "Spleen",
@@ -16,37 +16,175 @@
   "Duodenum",
   "Urinary bladder"
  ],
- "facts": {
-  "Liver": "The liver is the largest solid organ in the abdomen."
- },
+ "facts": {},
  "questions": [
   {
-   "image": "img/sample_1.svg",
+   "image": "img/liver_axial.png",
    "view": "axial",
    "answer": "Liver",
-   "case": "sample",
-   "slice": 0
+   "case": "s1383",
+   "slice": 207
   },
   {
-   "image": "img/sample_2.svg",
+   "image": "img/liver_coronal.png",
+   "view": "coronal",
+   "answer": "Liver",
+   "case": "s1383",
+   "slice": 126
+  },
+  {
+   "image": "img/spleen_axial.png",
    "view": "axial",
    "answer": "Spleen",
-   "case": "sample",
-   "slice": 0
+   "case": "s1383",
+   "slice": 212
   },
   {
-   "image": "img/sample_3.svg",
+   "image": "img/spleen_coronal.png",
+   "view": "coronal",
+   "answer": "Spleen",
+   "case": "s1383",
+   "slice": 92
+  },
+  {
+   "image": "img/pancreas_axial.png",
+   "view": "axial",
+   "answer": "Pancreas",
+   "case": "s1383",
+   "slice": 195
+  },
+  {
+   "image": "img/pancreas_coronal.png",
+   "view": "coronal",
+   "answer": "Pancreas",
+   "case": "s1383",
+   "slice": 124
+  },
+  {
+   "image": "img/right_kidney_axial.png",
+   "view": "axial",
+   "answer": "Right kidney",
+   "case": "s1383",
+   "slice": 176
+  },
+  {
+   "image": "img/right_kidney_coronal.png",
    "view": "coronal",
    "answer": "Right kidney",
-   "case": "sample",
-   "slice": 0
+   "case": "s1383",
+   "slice": 89
   },
   {
-   "image": "img/sample_4.svg",
+   "image": "img/left_kidney_axial.png",
+   "view": "axial",
+   "answer": "Left kidney",
+   "case": "s1383",
+   "slice": 183
+  },
+  {
+   "image": "img/left_kidney_coronal.png",
+   "view": "coronal",
+   "answer": "Left kidney",
+   "case": "s1383",
+   "slice": 85
+  },
+  {
+   "image": "img/gallbladder_axial.png",
+   "view": "axial",
+   "answer": "Gallbladder",
+   "case": "s1383",
+   "slice": 181
+  },
+  {
+   "image": "img/gallbladder_coronal.png",
+   "view": "coronal",
+   "answer": "Gallbladder",
+   "case": "s1383",
+   "slice": 143
+  },
+  {
+   "image": "img/stomach_axial.png",
+   "view": "axial",
+   "answer": "Stomach",
+   "case": "s0477",
+   "slice": 172
+  },
+  {
+   "image": "img/stomach_coronal.png",
+   "view": "coronal",
+   "answer": "Stomach",
+   "case": "s0477",
+   "slice": 121
+  },
+  {
+   "image": "img/aorta_axial.png",
+   "view": "axial",
+   "answer": "Aorta",
+   "case": "s0477",
+   "slice": 263
+  },
+  {
+   "image": "img/aorta_coronal.png",
    "view": "coronal",
    "answer": "Aorta",
-   "case": "sample",
-   "slice": 0
+   "case": "s0477",
+   "slice": 109
+  },
+  {
+   "image": "img/inferior_vena_cava_axial.png",
+   "view": "axial",
+   "answer": "Inferior vena cava",
+   "case": "s1383",
+   "slice": 233
+  },
+  {
+   "image": "img/inferior_vena_cava_coronal.png",
+   "view": "coronal",
+   "answer": "Inferior vena cava",
+   "case": "s1383",
+   "slice": 113
+  },
+  {
+   "image": "img/oesophagus_axial.png",
+   "view": "axial",
+   "answer": "Oesophagus",
+   "case": "s0950",
+   "slice": 196
+  },
+  {
+   "image": "img/oesophagus_coronal.png",
+   "view": "coronal",
+   "answer": "Oesophagus",
+   "case": "s0950",
+   "slice": 77
+  },
+  {
+   "image": "img/duodenum_axial.png",
+   "view": "axial",
+   "answer": "Duodenum",
+   "case": "s1383",
+   "slice": 163
+  },
+  {
+   "image": "img/duodenum_coronal.png",
+   "view": "coronal",
+   "answer": "Duodenum",
+   "case": "s1383",
+   "slice": 118
+  },
+  {
+   "image": "img/urinary_bladder_axial.png",
+   "view": "axial",
+   "answer": "Urinary bladder",
+   "case": "s1383",
+   "slice": 60
+  },
+  {
+   "image": "img/urinary_bladder_coronal.png",
+   "view": "coronal",
+   "answer": "Urinary bladder",
+   "case": "s1383",
+   "slice": 118
   }
  ]
 }

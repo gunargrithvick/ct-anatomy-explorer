@@ -16,7 +16,20 @@
   "Duodenum",
   "Urinary bladder"
  ],
- "facts": {},
+ "facts": {
+  "Liver": "The largest solid organ, in the right upper abdomen under the diaphragm. It makes bile; the gallbladder sits on its under-surface.",
+  "Spleen": "Lies in the left upper abdomen behind the stomach, under ribs 9 to 11. It filters the blood.",
+  "Pancreas": "Lies behind the stomach; its head sits in the C-loop of the duodenum. It makes digestive enzymes and insulin.",
+  "Right kidney": "Lies on the back wall of the abdomen beside the spine, a little lower than the left kidney because the liver is above it.",
+  "Left kidney": "Lies on the back wall of the abdomen, slightly higher than the right. Its renal vein crosses in front of the aorta.",
+  "Gallbladder": "A small pear-shaped sac under the liver that stores and concentrates bile.",
+  "Stomach": "A J-shaped organ in the left upper abdomen between the oesophagus and the duodenum. Its shape changes with filling.",
+  "Aorta": "The main artery of the body. It runs down in front of the spine and divides into the common iliac arteries at about L4.",
+  "Inferior vena cava": "The large vein carrying blood from the lower body to the heart. It runs to the right of the aorta, behind the liver.",
+  "Oesophagus": "The muscular tube from the throat to the stomach. It passes behind the heart and through the diaphragm at about T10.",
+  "Duodenum": "The first part of the small intestine, curved like a C around the head of the pancreas. Bile and pancreatic juice enter it.",
+  "Urinary bladder": "Lies in the pelvis behind the pubic bone and stores urine. On CT its size depends on how full it is."
+ },
  "questions": [
   {
    "image": "img/liver_axial.png",

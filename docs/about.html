@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About – CT Anatomy Explorer</title>
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <nav class="pg-nav"><a href="index.html">Viewer</a> · <a href="quiz.html">Organ quiz</a> · <a href="teach.html">Teacher's guide</a> · <strong>About</strong></nav>
+  <main class="pg-main">
+    <h1>About CT Anatomy Explorer</h1>
+    <p class="pg-warn">Teaching use only. This website is not for diagnosis or patient care.</p>
+    <h2>What it is</h2>
+    <p>A free teaching website for CT anatomy. On 5 public CT scans, two outlines are shown for each of 12 abdominal organs: one drawn by experts and one made by an AI model. Students compare the two outlines, read a short note on each organ and test themselves with a quiz.</p>
+    <h2>How it was made</h2>
+    <ol>
+      <li>The scans and the expert outlines come from the TotalSegmentator small dataset (v2.0.1, Zenodo record 10047263).</li>
+      <li>The AI outlines were made with the VISTA-3D model (MONAI bundle, version 0.5.11) on a free Kaggle GPU.</li>
+      <li>Each AI outline was compared with the expert outline: Dice score and organ volume.</li>
+      <li>The 5 clearest scans were made smaller (2 mm) so that they load fast; the viewer uses NiiVue.</li>
+      <li>The organ notes and the quiz were checked by faculty in October 2026.</li>
+    </ol>
+    <h2>What the Dice score means</h2>
+    <p>Dice tells how much two outlines overlap: 1.00 means they are the same, 0 means they do not touch. The table for every organ is on the <a href="https://github.com/gunargrithvick/ct-anatomy-explorer">project page</a>.</p>
+    <h2>Limits</h2>
+    <ul>
+      <li>Only 5 scans are shown. They come from a public research dataset, not from our hospital.</li>
+      <li>Expert outlines are not perfect either: a low Dice can be an AI error or an outline error.</li>
+      <li>The scans were made smaller (2 mm), so small details are lost.</li>
+      <li>The AI model may be used for research and teaching only (NVIDIA licence, not for commercial use).</li>
+    </ul>
+    <h2>Credits and how to cite</h2>
+    <ul>
+      <li>Data: Wasserthal J. et al. TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images. Radiology: Artificial Intelligence, 2023. Licence CC BY 4.0.</li>
+      <li>AI model: He Y. et al. VISTA3D: A Unified Segmentation Foundation Model for 3D Medical Imaging. arXiv:2406.05285, 2024. MONAI (Apache 2.0).</li>
+      <li>Viewer: NiiVue (BSD 2-Clause).</li>
+    </ul>
+    <h2>Team</h2>
+    <p>Guna Rithvick and Ayushi N · DSU AI Factory (Data &amp; Health AI), Dayananda Sagar University, Bengaluru.</p>
+    <p class="pg-small">Version v1.0 · October 2026 · <a href="https://github.com/gunargrithvick/ct-anatomy-explorer">Project page on GitHub</a></p>
+  </main>
+</body>
+</html>

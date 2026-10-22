@@ -9,7 +9,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: system
 .pg-main h1 { font-size: 1.7rem; margin: 8px 0; }
 .pg-main h2 { font-size: 1.2rem; margin-top: 24px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 .pg-warn { background: var(--warn-bg); color: var(--warn-text); padding: 10px 12px; border-radius: 8px; }
-.pg-small { font-size: 0.85rem; opacity: 0.8; }
+.pg-small { font-size: 0.85rem; }
 .pg-table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
 .pg-table th, .pg-table td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
 .pg-table th { background: var(--soft); }

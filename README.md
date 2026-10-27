@@ -4,7 +4,11 @@ A free teaching website for CT anatomy. On public CT scans, two outlines are sho
 
 > **Educational use only.** Not for diagnosis or any clinical decision.
 
-**Open the website:** https://gunargrithvick.github.io/ct-anatomy-explorer/
+**Open the website:** [Viewer](https://gunargrithvick.github.io/ct-anatomy-explorer/)
+
+- [Organ quiz](https://gunargrithvick.github.io/ct-anatomy-explorer/quiz.html)
+- [Teacher's guide](https://gunargrithvick.github.io/ct-anatomy-explorer/teach.html)
+- [About](https://gunargrithvick.github.io/ct-anatomy-explorer/about.html)
 
 ## What it does
 
@@ -14,6 +18,8 @@ A free teaching website for CT anatomy. On public CT scans, two outlines are sho
 | Three views of the masks | **Expert** (reference), **AI** (VISTA-3D) and **Compare** (agree / AI-only / missed) |
 | Scan viewer | axial, coronal, sagittal and 3D; CT windows for abdomen, lung and bone; radiology orientation |
 | Teaching aids | tick organs on or off; click an organ name to jump to it; read the organ under the cursor |
+| Organ quiz | An organ quiz with 24 CT pictures and checked facts. |
+| Teacher's guide | A Teacher's guide with a 45-minute lesson plan and a printable worksheet. |
 | Numbers | Dice overlap and volumes (mL) per organ, plus automatic warnings for likely bugs |
 | Downloads | CT copy, expert masks, full-resolution AI masks, scores (CSV), label key |
 
@@ -127,4 +133,8 @@ Built by Guna Rithvick and Ayushi N, DSU AI Factory interns.
 | Version | Date | What changed |
 |---|---|---|
 | v0.5 | 14 Oct 2026 | First public release: 5 scans, 12 organs, Expert / AI / Compare views, Dice and volume table, teaching notes, demo video |
-| v1.0 | planned for 31 Oct 2026 | Faculty-reviewed version for teaching |
+| v1.0 | 29 Oct 2026 | Faculty-reviewed release: organ quiz, Teacher's guide, About page |
+
+## Known problems
+
+None known.
